@@ -9,7 +9,7 @@ import { useScroll, useMotionValueEvent } from "framer-motion";
 const N = 800;
 const GLOBE_R = 400;
 const FOV = 800;
-const VH = 280;
+const VH = 200;
 const GOLDEN = Math.PI * (3 - Math.sqrt(5));
 const TILT = 0.4; // globe Y-rotation so Dublin is off-center initially
 const DUB_LAT = (53.35 * Math.PI) / 180;

@@ -2,7 +2,6 @@
 
 import SpatialJourney from "@/components/SpatialJourney";
 import Navigation from "@/components/Navigation";
-import SectionOpening from "@/components/SectionOpening";
 import SectionRecord from "@/components/SectionRecord";
 import SectionFailure from "@/components/SectionFailure";
 import SectionTamper from "@/components/SectionTamper";
@@ -15,18 +14,12 @@ import SectionClose from "@/components/SectionClose";
 export default function Home() {
   return (
     <main className="relative">
-      {/* Cinematic scroll-driven spatial journey */}
+      {/* Cinematic spatial journey → flows directly into Record */}
       <SpatialJourney />
 
-      {/* UI returns after the journey ends */}
+      {/* UI returns after the journey */}
       <div className="relative z-10">
         <Navigation />
-
-        <SectionOpening />
-
-        <div className="max-w-[1200px] mx-auto px-6">
-          <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-        </div>
 
         <SectionRecord />
 
