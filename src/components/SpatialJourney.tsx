@@ -728,17 +728,22 @@ export default function SpatialJourney() {
 
         // "NOTARA CHAIN" — visible on load
         if (fadeOut > 0.01) {
-          const headSize = Math.min(w * 0.055, 64);
+          const mobile = w < 640;
+          const headSize = mobile ? Math.min(w * 0.08, 32) : Math.min(w * 0.045, 56);
           ctx.font = `700 ${headSize}px 'Manrope', sans-serif`;
-          ctx.letterSpacing = "0.08em";
           ctx.fillStyle = `rgba(255,255,255,${fadeOut * 0.95})`;
           ctx.fillText("NOTARA CHAIN", hw, hh - 20);
 
           // Subtitle
-          const subSize = Math.min(w * 0.013, 15);
+          const subSize = mobile ? Math.min(w * 0.028, 12) : Math.min(w * 0.012, 15);
           ctx.font = `400 ${subSize}px 'JetBrains Mono', monospace`;
           ctx.fillStyle = `rgba(16,185,129,${fadeOut * 0.6})`;
-          ctx.fillText("Tamper-proof construction document verification on Solana", hw, hh + 20);
+          if (mobile) {
+            ctx.fillText("Tamper-proof construction document", hw, hh + 16);
+            ctx.fillText("verification on Solana", hw, hh + 16 + subSize * 1.6);
+          } else {
+            ctx.fillText("Tamper-proof construction document verification on Solana", hw, hh + 20);
+          }
         }
 
         ctx.textAlign = "left";
