@@ -726,46 +726,19 @@ export default function SpatialJourney() {
         ctx.textAlign = "center";
         const fadeOut = 1 - ss(0.17, 0.23, p);
 
-        // "How a record is created" — visible on load
+        // "NOTARA CHAIN" — visible on load
         if (fadeOut > 0.01) {
-          const headSize = Math.min(w * 0.038, 48);
-          ctx.font = `600 ${headSize}px 'Manrope', sans-serif`;
-          ctx.fillStyle = `rgba(255,255,255,${fadeOut * 0.9})`;
-          ctx.fillText("How a record is created", hw, hh - 65);
+          const headSize = Math.min(w * 0.055, 64);
+          ctx.font = `700 ${headSize}px 'Manrope', sans-serif`;
+          ctx.letterSpacing = "0.08em";
+          ctx.fillStyle = `rgba(255,255,255,${fadeOut * 0.95})`;
+          ctx.fillText("NOTARA CHAIN", hw, hh - 20);
 
-          // Thin accent line under heading
-          const lineW = ctx.measureText("How a record is created").width * 0.3;
-          ctx.fillStyle = `rgba(16,185,129,${fadeOut * 0.25})`;
-          ctx.fillRect(hw - lineW / 2, hh - 45, lineW, 1);
-        }
-
-        // "A document enters."
-        const l2 = ss(0.025, 0.05, p) * fadeOut;
-        if (l2 > 0.01) {
-          const subSize = Math.min(w * 0.015, 17);
+          // Subtitle
+          const subSize = Math.min(w * 0.013, 15);
           ctx.font = `400 ${subSize}px 'JetBrains Mono', monospace`;
-          ctx.fillStyle = `rgba(16,185,129,${l2 * 0.8})`;
-          ctx.fillText("A document enters.", hw, hh - 10);
-        }
-
-        // "A fingerprint stays forever."
-        const l3 = ss(0.055, 0.08, p) * fadeOut;
-        if (l3 > 0.01) {
-          const subSize = Math.min(w * 0.015, 17);
-          ctx.font = `400 ${subSize}px 'JetBrains Mono', monospace`;
-          ctx.fillStyle = `rgba(16,185,129,${l3 * 0.8})`;
-          ctx.fillText("A fingerprint stays forever.", hw, hh + 18);
-        }
-
-        // Explanatory paragraph
-        const l4 = ss(0.09, 0.13, p) * fadeOut;
-        if (l4 > 0.01) {
-          const paraSize = Math.min(w * 0.011, 13);
-          ctx.font = `300 ${paraSize}px 'JetBrains Mono', monospace`;
-          ctx.fillStyle = `rgba(107,114,128,${l4 * 0.5})`;
-          ctx.fillText("Every file is reduced to a unique cryptographic hash.", hw, hh + 70);
-          ctx.fillText("The hash is written to Solana.", hw, hh + 90);
-          ctx.fillText("The file can change — the proof cannot.", hw, hh + 110);
+          ctx.fillStyle = `rgba(16,185,129,${fadeOut * 0.6})`;
+          ctx.fillText("Tamper-proof construction document verification on Solana", hw, hh + 20);
         }
 
         ctx.textAlign = "left";
