@@ -361,7 +361,9 @@ export default function SpatialJourney() {
         // ── Scene-specific appearance ───────────────────
         if (p < 0.2) {
           // Scene 1: Abstract space — sparse white dots
-          alpha *= 0.35;
+          // Dimmer during text overlay, brightens as text fades
+          const textPresence = 1 - ss(0.15, 0.22, p);
+          alpha *= lerp(0.35, 0.15, textPresence);
           size *= 0.55;
         } else if (p < 0.42) {
           // Scene 2: Collapsing into globe
@@ -718,6 +720,56 @@ export default function SpatialJourney() {
       vig.addColorStop(1, "rgba(8,9,10,0.45)");
       ctx.fillStyle = vig;
       ctx.fillRect(0, 0, w, h);
+
+      // ── Opening text sequence ───────────────────────────
+      if (p < 0.23) {
+        ctx.textAlign = "center";
+        const fadeOut = 1 - ss(0.17, 0.23, p);
+
+        // "How a record is created" — visible on load
+        if (fadeOut > 0.01) {
+          const headSize = Math.min(w * 0.038, 48);
+          ctx.font = `600 ${headSize}px 'Manrope', sans-serif`;
+          ctx.fillStyle = `rgba(255,255,255,${fadeOut * 0.9})`;
+          ctx.fillText("How a record is created", hw, hh - 65);
+
+          // Thin accent line under heading
+          const lineW = ctx.measureText("How a record is created").width * 0.3;
+          ctx.fillStyle = `rgba(16,185,129,${fadeOut * 0.25})`;
+          ctx.fillRect(hw - lineW / 2, hh - 45, lineW, 1);
+        }
+
+        // "A document enters."
+        const l2 = ss(0.025, 0.05, p) * fadeOut;
+        if (l2 > 0.01) {
+          const subSize = Math.min(w * 0.015, 17);
+          ctx.font = `400 ${subSize}px 'JetBrains Mono', monospace`;
+          ctx.fillStyle = `rgba(16,185,129,${l2 * 0.8})`;
+          ctx.fillText("A document enters.", hw, hh - 10);
+        }
+
+        // "A fingerprint stays forever."
+        const l3 = ss(0.055, 0.08, p) * fadeOut;
+        if (l3 > 0.01) {
+          const subSize = Math.min(w * 0.015, 17);
+          ctx.font = `400 ${subSize}px 'JetBrains Mono', monospace`;
+          ctx.fillStyle = `rgba(16,185,129,${l3 * 0.8})`;
+          ctx.fillText("A fingerprint stays forever.", hw, hh + 18);
+        }
+
+        // Explanatory paragraph
+        const l4 = ss(0.09, 0.13, p) * fadeOut;
+        if (l4 > 0.01) {
+          const paraSize = Math.min(w * 0.011, 13);
+          ctx.font = `300 ${paraSize}px 'JetBrains Mono', monospace`;
+          ctx.fillStyle = `rgba(107,114,128,${l4 * 0.5})`;
+          ctx.fillText("Every file is reduced to a unique cryptographic hash.", hw, hh + 70);
+          ctx.fillText("The hash is written to Solana.", hw, hh + 90);
+          ctx.fillText("The file can change — the proof cannot.", hw, hh + 110);
+        }
+
+        ctx.textAlign = "left";
+      }
     },
     [particles]
   );
