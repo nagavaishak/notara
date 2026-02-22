@@ -57,7 +57,7 @@ export default function Navigation() {
         <div className="flex items-center gap-3">
           <div className="w-2 h-2 bg-accent rounded-full pulse-verified" />
           <span className="font-mono text-xs font-semibold tracking-[0.2em] text-foreground">
-            NOTARA
+            NOTARA CHAIN
           </span>
         </div>
 

@@ -105,7 +105,7 @@ export default function SectionBimLink() {
                       BIM Link
                     </span>
                     <span className="font-mono text-xs text-foreground/70">
-                      notara.io/verify/{linkHash || "..."}
+                      notarachain.io/verify/{linkHash || "..."}
                     </span>
                   </div>
                 </div>

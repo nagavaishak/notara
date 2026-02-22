@@ -38,7 +38,7 @@ export default function SectionClose() {
           </h2>
 
           <p className="font-mono text-sm text-muted/60 mb-16 max-w-md mx-auto">
-            Notara places proof in a system no single party controls.
+            Notara Chain places proof in a system no single party controls.
             What was approved is provable. What was changed is visible.
             With mathematical certainty.
           </p>
@@ -60,7 +60,7 @@ export default function SectionClose() {
             <div className="flex items-center gap-4 font-mono text-[10px] text-muted/30">
               <span>Dublin, Ireland</span>
               <div className="w-px h-3 bg-border" />
-              <span>notara.io</span>
+              <span>notarachain.io</span>
             </div>
           </motion.div>
         </motion.div>
@@ -72,7 +72,7 @@ export default function SectionClose() {
           <div className="flex items-center gap-3">
             <div className="w-1.5 h-1.5 bg-accent rounded-full pulse-verified" />
             <span className="font-mono text-[10px] tracking-[0.2em] text-muted/40">
-              NOTARA
+              NOTARA CHAIN
             </span>
           </div>
           <span className="font-mono text-[10px] text-muted/20">
