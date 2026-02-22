@@ -316,7 +316,7 @@ export default function SpatialJourney() {
       const toSite = ss(0.84, 0.96, p);
       const stretchPeak =
         ss(0.57, 0.64, p) * (1 - ss(0.67, 0.74, p));
-      const fadeInSpace = ss(0.0, 0.04, p);
+      const fadeInSpace = 1; // particles always visible
 
       // ── SCENE 1–2: Draw particles ────────────────────────
       for (let i = 0; i < particles.length; i++) {
